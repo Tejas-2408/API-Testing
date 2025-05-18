@@ -1,0 +1,435 @@
+{
+	"info": {
+		"_postman_id": "0beaa7c4-749f-44da-91da-d678ef11e298",
+		"name": "Day3_StudentAPIs_ResponseValidations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4924228"
+	},
+	"item": [
+		{
+			"name": "Get Single Student",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test to check if the status code is 200\r",
+							"pm.test(\"Status code is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Test to verify the status code name contains \"OK\"\r",
+							"pm.test(\"Status code name has string\", () => { \r",
+							"  pm.response.to.have.status(\"OK\"); \r",
+							"}); \r",
+							"\r",
+							"// Test to ensure a successful GET request (status codes 200 or 201)\r",
+							"pm.test(\"Successful Get request\", () => { \r",
+							"  pm.expect(pm.response.code).to.be.oneOf([200, 201]); \r",
+							"}); \r",
+							"\r",
+							"// Test to verify the \"Content-Type\" header is present in the response\r",
+							"pm.test(\"Content-Type header is present\", () => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"// Test to verify the \"Content-Length\" header is present in the response\r",
+							"pm.test(\"Content-Length header is present\", () => {\r",
+							"   pm.response.to.have.header(\"Content-Length\");\r",
+							"});\r",
+							"\r",
+							"// Test to validate the \"Content-Type\" header has value \"application/json\"\r",
+							"pm.test(\"Content-Type header is application/json\", () => { \r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json'); \r",
+							"}); \r",
+							"\r",
+							"// Test to check if the cookie 'language' is present in the response\r",
+							"pm.test(\"Cookie 'language' is present\", () => {\r",
+							"    pm.expect(pm.cookies.has('language')).to.be.true;\r",
+							"});\r",
+							"\r",
+							"// Test to validate the value of the 'language' cookie\r",
+							"pm.test(\"Cookie language has value 1\", () => {\r",
+							"    pm.expect(pm.cookies.get('language')).to.eql('en-gb');\r",
+							"});\r",
+							"\r",
+							"// Test to check if the response time is less than 50ms\r",
+							"pm.test(\"Response time is less than 50ms\", () => { \r",
+							"  pm.expect(pm.response.responseTime).to.be.below(50); \r",
+							"});\r",
+							"\r",
+							"// Parse the JSON response\r",
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"// Test to validate the data types of fields in the response\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"    pm.expect(jsonData).to.be.an(\"object\");\r",
+							"    pm.expect(jsonData.name).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.id).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.courses).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"// Test to check specific properties and values in the courses array\r",
+							"pm.test(\"Test array properties\", () => { \r",
+							"  pm.expect(jsonData.courses).to.include(\"Java\"); \r",
+							"  pm.expect(jsonData.courses).to.have.members([\"Java\", \"Selenium\"]); \r",
+							"}); \r",
+							"\r",
+							"// Test to validate values of specific fields in the response\r",
+							"pm.test(\"Values of fields in response\", () => {\r",
+							"    pm.expect(jsonData.id).to.eql(\"1\");\r",
+							"    pm.expect(jsonData.name).to.eql(\"John\");\r",
+							"    pm.expect(jsonData.location).to.eql(\"india\");\r",
+							"    pm.expect(jsonData.phone).to.eql(\"1234567890\");\r",
+							"    pm.expect(jsonData.courses[0]).to.eql(\"Java\");\r",
+							"    pm.expect(jsonData.courses[1]).to.eql(\"Selenium\");\r",
+							"});\r",
+							"\r",
+							"// Define the schema for JSON validation\r",
+							"var schema = {\r",
+							"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\": {\r",
+							"        \"id\": {\r",
+							"            \"type\": \"string\"\r",
+							"        },\r",
+							"        \"name\": {\r",
+							"            \"type\": \"string\"\r",
+							"        },\r",
+							"        \"location\": {\r",
+							"            \"type\": \"string\"\r",
+							"        },\r",
+							"        \"phone\": {\r",
+							"            \"type\": \"string\"\r",
+							"        },\r",
+							"        \"courses\": {\r",
+							"            \"type\": \"array\",\r",
+							"            \"items\": [\r",
+							"                {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                {\r",
+							"                    \"type\": \"string\"\r",
+							"                }\r",
+							"            ]\r",
+							"        }\r",
+							"    },\r",
+							"    \"required\": [\r",
+							"        \"id\",\r",
+							"        \"name\",\r",
+							"        \"location\",\r",
+							"        \"phone\",\r",
+							"        \"courses\"\r",
+							"    ]\r",
+							"};\r",
+							"\r",
+							"// Test to validate the JSON response against the defined schema\r",
+							"pm.test('Schema is valid', function () {\r",
+							" pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/students/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Students Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test to check if the status code is 200\r",
+							"pm.test(\"Status code is 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Test to verify the \"Content-Type\" header is present in the response\r",
+							"pm.test(\"Content-Type header is present\", () => {\r",
+							"  pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"// Test to validate the \"Content-Type\" header has value \"application/json\"\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Test to check if the response time is less than 50ms\r",
+							"pm.test(\"Response time is less than 50ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(50);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Student",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test to check if the status code is 200\r",
+							"pm.test(\"Status code is 201\", () => {\r",
+							"  pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Test to verify the status code name contains \"Created\"\r",
+							"pm.test(\"Status code name has string\", () => { \r",
+							"  pm.response.to.have.status(\"Created\"); \r",
+							"}); \r",
+							"\r",
+							"// Test to verify the \"Content-Type\" header is present in the response\r",
+							"pm.test(\"Content-Type header is present\", () => {\r",
+							"  pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"// Test to validate the \"Content-Type\" header has value \"application/json\"\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Test to check if the response time is less than 50ms\r",
+							"pm.test(\"Response time is less than 50ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(50);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Scott\",\r\n    \"location\": \"France\",\r\n    \"phone\": \"123456\",\r\n    \"courses\": [\r\n        \"C\",\r\n        \"C++\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Student",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test to check if the status code is 200\r",
+							"pm.test(\"Status code is 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Test to verify the status code name contains \"OK\"\r",
+							"pm.test(\"Status code name has string\", () => { \r",
+							"  pm.response.to.have.status(\"OK\"); \r",
+							"}); \r",
+							"\r",
+							"// Test to verify the \"Content-Type\" header is present in the response\r",
+							"pm.test(\"Content-Type header is present\", () => {\r",
+							"  pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"// Test to validate the \"Content-Type\" header has value \"application/json\"\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Test to check if the response time is less than 50ms\r",
+							"pm.test(\"Response time is less than 50ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(50);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Scott\",\r\n    \"location\": \"Germany\",\r\n    \"phone\": \"654321\",\r\n    \"courses\": [\r\n        \"C#\",\r\n        \"C++\"\r\n    ]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students/bea2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"bea2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Student",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test to check if the status code is 200\r",
+							"pm.test(\"Status code is 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Test to verify the status code name contains \"OK\"\r",
+							"pm.test(\"Status code name has string\", () => { \r",
+							"  pm.response.to.have.status(\"OK\"); \r",
+							"}); \r",
+							"\r",
+							"// Test to verify the \"Content-Type\" header is present in the response\r",
+							"pm.test(\"Content-Type header is present\", () => {\r",
+							"  pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"// Test to validate the \"Content-Type\" header has value \"application/json\"\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Test to check if the response time is less than 50ms\r",
+							"pm.test(\"Response time is less than 50ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(50);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/students/bea2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"bea2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

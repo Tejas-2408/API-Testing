@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "7fc2782c-bace-4804-ae27-88062472a0d6",
+		"name": "Day4_VariablesAndScripts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4924228"
+	},
+	"item": [
+		{
+			"name": "myfolder",
+			"item": [
+				{
+					"name": "getusers",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"Pre-request script at request level\");\r",
+									"\r",
+									"//global variable\r",
+									"pm.globals.set(\"userid_global\",\"2\");\r",
+									"\r",
+									"//environment variable\r",
+									"pm.environment.set(\"userid_qa_env\",\"2\");\r",
+									"\r",
+									"//collection variable\r",
+									"pm.collectionVariables.set(\"userid_collect\",\"2\");\r",
+									"\r",
+									"//local variable\r",
+									"pm.variables.set(\"userid_local\",\"2\");\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Post-response script at request level\");\r",
+									"\r",
+									"//global variable\r",
+									"console.log(pm.globals.get(\"userid_global\"));\r",
+									"pm.globals.unset(\"userid_global\");\r",
+									"\r",
+									"//environment variables\r",
+									"console.log(pm.environment.get(\"userid_qa_env\"));\r",
+									"pm.environment.unset(\"userid_qa_env\"); \r",
+									"\r",
+									"\r",
+									"//collection var\r",
+									"console.log(pm.collectionVariables.get(\"userid_collect\"));\r",
+									"pm.collectionVariables.unset(\"userid_collect\"); \r",
+									"\r",
+									"//local var\r",
+									"console.log(pm.variables.get(\"userid_local\")); \r",
+									"pm.variables.unset(\"userid_local\"); \r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://reqres.in/api/users?page={{userid_local}}",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{userid_local}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createuser",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.variables.set(\"myname\",\"pavan\");\r",
+									"pm.variables.set(\"myjob\",\"trainer\");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.variables.unset(\"myname\");\r",
+									"pm.variables.unset(\"myjob\");\r",
+									"\r",
+									"// Test to check if the status code is 200\r",
+									"pm.test(\"Status code is 201\", () => {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// Test to verify the status code name contains \"Created\"\r",
+									"pm.test(\"Status code name has string\", () => { \r",
+									"  pm.response.to.have.status(\"Created\"); \r",
+									"}); \r",
+									"\r",
+									"// Parse the JSON response\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Values of fields in response\", () => {\r",
+									"    pm.expect(jsonData.name).to.eql(\"pavan\");\r",
+									"    pm.expect(jsonData.job).to.eql(\"trainer\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{myname}}\",\r\n    \"job\": \"{{myjob}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://reqres.in/api/users",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"console.log(\"Pre-request script at folder level\");"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"console.log(\"Post-response script at folder level\");"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Get Users_globalVar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_global}}/api/users?page=2",
+					"host": [
+						"{{url_global}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users_EnvVar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_qa_env}}/api/users?page=2",
+					"host": [
+						"{{url_qa_env}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users_CollectVar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_collect}}/api/users?page=2",
+					"host": [
+						"{{url_collect}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users_LocalVar",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.variables.set(\"url_local\",\"https://reqres.in\");\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_local}}/api/users?page=2",
+					"host": [
+						"{{url_local}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"console.log(\"Pre-request script at collection level\");\r",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"console.log(\"Post-response script at collection level\");"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_collect",
+			"value": "https://reqres.in",
+			"type": "string"
+		}
+	]
+}

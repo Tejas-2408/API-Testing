@@ -1,0 +1,91 @@
+Space X API
+-----------------------------------------------
+Get all sorts of information about previous Space X launches, like information about the rocket, astronauts, and more! 
+
+URL: https://spacex-production.up.railway.app/
+
+{
+  launchesPast(limit: 10) {
+    mission_name
+    launch_date_local
+    launch_site {
+      site_name_long
+    }
+    links {
+      article_link
+      video_link
+    }
+    rocket {
+      rocket_name
+    }
+  }
+}
+
+
+Countries API
+-----------------------------------------------
+Get country codes, emoji, and more for every country
+
+
+URL: https://countries.trevorblades.com/graphql
+
+{
+  countries {
+    code
+    name
+    emoji
+  }
+}
+
+------
+Get specific country details.
+
+{
+  country(code: "IN") {
+    name
+    native
+    capital
+    phone
+    emoji
+    currency
+    languages {
+      code
+      name
+    }
+  }
+}
+
+
+GitHub API
+-----------------------------------------------
+url: https://api.github.com/graphql
+
+Bear Token : generate your own github token
+
+query MeQuery {
+  viewer {
+    login
+    name
+  }
+}
+
+-----
+
+query($number_of_repos:Int!) {
+  viewer {
+    name
+     repositories(last: $number_of_repos) {
+       nodes {
+         name
+       }
+     }
+   }
+}
+
+Params:
+--
+{
+   "number_of_repos": 3
+}
+
+

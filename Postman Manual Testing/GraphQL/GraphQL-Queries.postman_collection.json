@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "082a9d68-2208-4d17-bdcd-c252d210f6c3",
+		"name": "GraphQL-Queries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4924228"
+	},
+	"item": [
+		{
+			"name": "Fetch Users and Their Todos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDY3ODBhNjI1NGY0YTc3Y2QzOTRkYTc2MCJ9LCJuaWNrbmFtZSI6InBhdmFub2x0cmFpbmluZyIsIm5hbWUiOiJwYXZhbm9sdHJhaW5pbmdAZ21haWwuY29tIiwicGljdHVyZSI6Imh0dHBzOi8vcy5ncmF2YXRhci5jb20vYXZhdGFyLzIwOGM0NDU1ZTE5OWYxNzNkZjcyZTA4ZjViNzMyN2IwP3M9NDgwJnI9cGcmZD1odHRwcyUzQSUyRiUyRmNkbi5hdXRoMC5jb20lMkZhdmF0YXJzJTJGcGEucG5nIiwidXBkYXRlZF9hdCI6IjIwMjUtMDEtMTlUMDg6MjQ6MTAuNDAyWiIsImlzcyI6Imh0dHBzOi8vZ3JhcGhxbC10dXRvcmlhbHMuYXV0aDAuY29tLyIsImF1ZCI6IlAzOHFuRm8xbEZBUUpyemt1bi0td0V6cWxqVk5HY1dXIiwiaWF0IjoxNzM3MzQ0NTU2LCJleHAiOjE3MzczODA1NTYsInN1YiI6ImF1dGgwfDY3ODBhNjI1NGY0YTc3Y2QzOTRkYTc2MCIsImF0X2hhc2giOiIxVlVocnBmWEZLVUJ3MWszRTNlR2ZnIiwic2lkIjoiNm0zbnhJNXpRMThPMTZtUkgtbmtOaUxaclB0N2hTOTEiLCJub25jZSI6ImVKM1hJQmVTZkN2UmFDUDlyZzJRN2dCc1VzUmY4eXozIn0.PwLUE29QsgDEi-BKBRBkQzUfk2O-QFmJrKsVre9_8z3_Iy9TTz61x4FtiODUH9qCkDoxhZRMlTo4ZgzerWS1tZ60TnFvxM8QPAWl9O9hUMwggx5-Awob0vn2ARal8w9xMMT6SINVZMkctaHJwaUfy8bc2aFrzNG4D-lRcc9eqPC7fmFTpIrQtsBVjqzTWEUcuSLuHmhP0c5uffKUyKcPxsHQflrB8arUEkPYQRN9BK5oXaZQX51R3otUd9YYoDh45SQ7aaGCIMe05_gs24neSTkvlZ5hGATKPPz13lHKG9CGw5JSJ4gTrV9KBR4r7SO6SbLEjpPt22IQ0Mej_-xthQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n   users {\r\n     name\r\n     todos {\r\n       title\r\n     }\r\n   }\r\n }",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://hasura.io/learn/graphql",
+					"protocol": "https",
+					"host": [
+						"hasura",
+						"io"
+					],
+					"path": [
+						"learn",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GraphQL Query With an Argument: Fetch 10 Todos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDY3ODBhNjI1NGY0YTc3Y2QzOTRkYTc2MCJ9LCJuaWNrbmFtZSI6InBhdmFub2x0cmFpbmluZyIsIm5hbWUiOiJwYXZhbm9sdHJhaW5pbmdAZ21haWwuY29tIiwicGljdHVyZSI6Imh0dHBzOi8vcy5ncmF2YXRhci5jb20vYXZhdGFyLzIwOGM0NDU1ZTE5OWYxNzNkZjcyZTA4ZjViNzMyN2IwP3M9NDgwJnI9cGcmZD1odHRwcyUzQSUyRiUyRmNkbi5hdXRoMC5jb20lMkZhdmF0YXJzJTJGcGEucG5nIiwidXBkYXRlZF9hdCI6IjIwMjUtMDEtMTlUMDg6MjQ6MTAuNDAyWiIsImlzcyI6Imh0dHBzOi8vZ3JhcGhxbC10dXRvcmlhbHMuYXV0aDAuY29tLyIsImF1ZCI6IlAzOHFuRm8xbEZBUUpyemt1bi0td0V6cWxqVk5HY1dXIiwiaWF0IjoxNzM3MzQ0NTU2LCJleHAiOjE3MzczODA1NTYsInN1YiI6ImF1dGgwfDY3ODBhNjI1NGY0YTc3Y2QzOTRkYTc2MCIsImF0X2hhc2giOiIxVlVocnBmWEZLVUJ3MWszRTNlR2ZnIiwic2lkIjoiNm0zbnhJNXpRMThPMTZtUkgtbmtOaUxaclB0N2hTOTEiLCJub25jZSI6ImVKM1hJQmVTZkN2UmFDUDlyZzJRN2dCc1VzUmY4eXozIn0.PwLUE29QsgDEi-BKBRBkQzUfk2O-QFmJrKsVre9_8z3_Iy9TTz61x4FtiODUH9qCkDoxhZRMlTo4ZgzerWS1tZ60TnFvxM8QPAWl9O9hUMwggx5-Awob0vn2ARal8w9xMMT6SINVZMkctaHJwaUfy8bc2aFrzNG4D-lRcc9eqPC7fmFTpIrQtsBVjqzTWEUcuSLuHmhP0c5uffKUyKcPxsHQflrB8arUEkPYQRN9BK5oXaZQX51R3otUd9YYoDh45SQ7aaGCIMe05_gs24neSTkvlZ5hGATKPPz13lHKG9CGw5JSJ4gTrV9KBR4r7SO6SbLEjpPt22IQ0Mej_-xthQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  todos(limit: 10) {\r\n    id\r\n    title\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://hasura.io/learn/graphql?Content-Type=application/json",
+					"protocol": "https",
+					"host": [
+						"hasura",
+						"io"
+					],
+					"path": [
+						"learn",
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GraphQL Query With Multiple Arguments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDY3ODBhNjI1NGY0YTc3Y2QzOTRkYTc2MCJ9LCJuaWNrbmFtZSI6InBhdmFub2x0cmFpbmluZyIsIm5hbWUiOiJwYXZhbm9sdHJhaW5pbmdAZ21haWwuY29tIiwicGljdHVyZSI6Imh0dHBzOi8vcy5ncmF2YXRhci5jb20vYXZhdGFyLzIwOGM0NDU1ZTE5OWYxNzNkZjcyZTA4ZjViNzMyN2IwP3M9NDgwJnI9cGcmZD1odHRwcyUzQSUyRiUyRmNkbi5hdXRoMC5jb20lMkZhdmF0YXJzJTJGcGEucG5nIiwidXBkYXRlZF9hdCI6IjIwMjUtMDEtMTlUMDg6MjQ6MTAuNDAyWiIsImlzcyI6Imh0dHBzOi8vZ3JhcGhxbC10dXRvcmlhbHMuYXV0aDAuY29tLyIsImF1ZCI6IlAzOHFuRm8xbEZBUUpyemt1bi0td0V6cWxqVk5HY1dXIiwiaWF0IjoxNzM3MzQ0NTU2LCJleHAiOjE3MzczODA1NTYsInN1YiI6ImF1dGgwfDY3ODBhNjI1NGY0YTc3Y2QzOTRkYTc2MCIsImF0X2hhc2giOiIxVlVocnBmWEZLVUJ3MWszRTNlR2ZnIiwic2lkIjoiNm0zbnhJNXpRMThPMTZtUkgtbmtOaUxaclB0N2hTOTEiLCJub25jZSI6ImVKM1hJQmVTZkN2UmFDUDlyZzJRN2dCc1VzUmY4eXozIn0.PwLUE29QsgDEi-BKBRBkQzUfk2O-QFmJrKsVre9_8z3_Iy9TTz61x4FtiODUH9qCkDoxhZRMlTo4ZgzerWS1tZ60TnFvxM8QPAWl9O9hUMwggx5-Awob0vn2ARal8w9xMMT6SINVZMkctaHJwaUfy8bc2aFrzNG4D-lRcc9eqPC7fmFTpIrQtsBVjqzTWEUcuSLuHmhP0c5uffKUyKcPxsHQflrB8arUEkPYQRN9BK5oXaZQX51R3otUd9YYoDh45SQ7aaGCIMe05_gs24neSTkvlZ5hGATKPPz13lHKG9CGw5JSJ4gTrV9KBR4r7SO6SbLEjpPt22IQ0Mej_-xthQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  users (limit: 2) {\r\n    id\r\n    name\r\n    todos(order_by: {created_at: desc}, limit: 5) {\r\n      id\r\n      title\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://hasura.io/learn/graphql?Content-Type=application/json",
+					"protocol": "https",
+					"host": [
+						"hasura",
+						"io"
+					],
+					"path": [
+						"learn",
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GraphQL Query With Variables",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDY3ODBhNjI1NGY0YTc3Y2QzOTRkYTc2MCJ9LCJuaWNrbmFtZSI6InBhdmFub2x0cmFpbmluZyIsIm5hbWUiOiJwYXZhbm9sdHJhaW5pbmdAZ21haWwuY29tIiwicGljdHVyZSI6Imh0dHBzOi8vcy5ncmF2YXRhci5jb20vYXZhdGFyLzIwOGM0NDU1ZTE5OWYxNzNkZjcyZTA4ZjViNzMyN2IwP3M9NDgwJnI9cGcmZD1odHRwcyUzQSUyRiUyRmNkbi5hdXRoMC5jb20lMkZhdmF0YXJzJTJGcGEucG5nIiwidXBkYXRlZF9hdCI6IjIwMjUtMDEtMTlUMDg6MjQ6MTAuNDAyWiIsImlzcyI6Imh0dHBzOi8vZ3JhcGhxbC10dXRvcmlhbHMuYXV0aDAuY29tLyIsImF1ZCI6IlAzOHFuRm8xbEZBUUpyemt1bi0td0V6cWxqVk5HY1dXIiwiaWF0IjoxNzM3MzQ0NTU2LCJleHAiOjE3MzczODA1NTYsInN1YiI6ImF1dGgwfDY3ODBhNjI1NGY0YTc3Y2QzOTRkYTc2MCIsImF0X2hhc2giOiIxVlVocnBmWEZLVUJ3MWszRTNlR2ZnIiwic2lkIjoiNm0zbnhJNXpRMThPMTZtUkgtbmtOaUxaclB0N2hTOTEiLCJub25jZSI6ImVKM1hJQmVTZkN2UmFDUDlyZzJRN2dCc1VzUmY4eXozIn0.PwLUE29QsgDEi-BKBRBkQzUfk2O-QFmJrKsVre9_8z3_Iy9TTz61x4FtiODUH9qCkDoxhZRMlTo4ZgzerWS1tZ60TnFvxM8QPAWl9O9hUMwggx5-Awob0vn2ARal8w9xMMT6SINVZMkctaHJwaUfy8bc2aFrzNG4D-lRcc9eqPC7fmFTpIrQtsBVjqzTWEUcuSLuHmhP0c5uffKUyKcPxsHQflrB8arUEkPYQRN9BK5oXaZQX51R3otUd9YYoDh45SQ7aaGCIMe05_gs24neSTkvlZ5hGATKPPz13lHKG9CGw5JSJ4gTrV9KBR4r7SO6SbLEjpPt22IQ0Mej_-xthQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($limit: Int!) {\r\n  todos(limit: $limit) {\r\n    id\r\n    title\r\n  }\r\n}",
+						"variables": "{\r\n   \"limit\": 10\r\n}"
+					}
+				},
+				"url": {
+					"raw": "https://hasura.io/learn/graphql?Content-Type=application/json",
+					"protocol": "https",
+					"host": [
+						"hasura",
+						"io"
+					],
+					"path": [
+						"learn",
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GraphQL Query Filter - Where Clause",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDY3ODBhNjI1NGY0YTc3Y2QzOTRkYTc2MCJ9LCJuaWNrbmFtZSI6InBhdmFub2x0cmFpbmluZyIsIm5hbWUiOiJwYXZhbm9sdHJhaW5pbmdAZ21haWwuY29tIiwicGljdHVyZSI6Imh0dHBzOi8vcy5ncmF2YXRhci5jb20vYXZhdGFyLzIwOGM0NDU1ZTE5OWYxNzNkZjcyZTA4ZjViNzMyN2IwP3M9NDgwJnI9cGcmZD1odHRwcyUzQSUyRiUyRmNkbi5hdXRoMC5jb20lMkZhdmF0YXJzJTJGcGEucG5nIiwidXBkYXRlZF9hdCI6IjIwMjUtMDEtMTlUMDg6MjQ6MTAuNDAyWiIsImlzcyI6Imh0dHBzOi8vZ3JhcGhxbC10dXRvcmlhbHMuYXV0aDAuY29tLyIsImF1ZCI6IlAzOHFuRm8xbEZBUUpyemt1bi0td0V6cWxqVk5HY1dXIiwiaWF0IjoxNzM3MzQ0NTU2LCJleHAiOjE3MzczODA1NTYsInN1YiI6ImF1dGgwfDY3ODBhNjI1NGY0YTc3Y2QzOTRkYTc2MCIsImF0X2hhc2giOiIxVlVocnBmWEZLVUJ3MWszRTNlR2ZnIiwic2lkIjoiNm0zbnhJNXpRMThPMTZtUkgtbmtOaUxaclB0N2hTOTEiLCJub25jZSI6ImVKM1hJQmVTZkN2UmFDUDlyZzJRN2dCc1VzUmY4eXozIn0.PwLUE29QsgDEi-BKBRBkQzUfk2O-QFmJrKsVre9_8z3_Iy9TTz61x4FtiODUH9qCkDoxhZRMlTo4ZgzerWS1tZ60TnFvxM8QPAWl9O9hUMwggx5-Awob0vn2ARal8w9xMMT6SINVZMkctaHJwaUfy8bc2aFrzNG4D-lRcc9eqPC7fmFTpIrQtsBVjqzTWEUcuSLuHmhP0c5uffKUyKcPxsHQflrB8arUEkPYQRN9BK5oXaZQX51R3otUd9YYoDh45SQ7aaGCIMe05_gs24neSTkvlZ5hGATKPPz13lHKG9CGw5JSJ4gTrV9KBR4r7SO6SbLEjpPt22IQ0Mej_-xthQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\r\n  todos(where: {is_public: {_eq: true}}) {\r\n    title\r\n    is_public\r\n    is_completed\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://hasura.io/learn/graphql?Content-Type=application/json",
+					"protocol": "https",
+					"host": [
+						"hasura",
+						"io"
+					],
+					"path": [
+						"learn",
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,7 @@
+https://hasura.io/learn/graphql/intro-graphql/core-concepts/
+
+Editor:
+------
+You need to signup and create account to access editor.
+https://hasura.io/learn/graphql/graphiql
+

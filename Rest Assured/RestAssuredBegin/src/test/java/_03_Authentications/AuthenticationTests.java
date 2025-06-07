@@ -70,7 +70,7 @@ public class AuthenticationTests {
 //				.header("Authorization","Bearer "+ bearerToken)
 //			
 //			.when()
-//				.get("https://api.github.com/user/repos")
+//				// github repo api url
 //			
 //			.then()
 //				.statusCode(200)

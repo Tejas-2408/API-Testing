@@ -62,20 +62,20 @@ public class AuthenticationTests {
 		
 		// 4. Bearer Token Authentication
 //		@Test
-		void verfiyBearerTokenAuth() {
-			
-			String bearerToken = "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";
-			
-			given()
-				.header("Authorization","Bearer "+ bearerToken)
-			
-			.when()
-				.get("https://api.github.com/user/repos")
-			
-			.then()
-				.statusCode(200)
-				.log().body();
-		}
+//		void verfiyBearerTokenAuth() {
+//			
+//			String bearerToken = "***************";
+//			
+//			given()
+//				.header("Authorization","Bearer "+ bearerToken)
+//			
+//			.when()
+//				.get("https://api.github.com/user/repos")
+//			
+//			.then()
+//				.statusCode(200)
+//				.log().body();
+//		}
 		
 		
 		// 5 API Key authentication

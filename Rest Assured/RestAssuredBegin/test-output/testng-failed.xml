@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="_02_RequestPayload.ParametersDemo">
+      <class name="_03_Authentications.AuthenticationTests">
         <methods>
-          <include name="queryParams"/>
+          <include name="verfiyBearerTokenAuth"/>
         </methods>
-      </class> <!-- _02_RequestPayload.ParametersDemo -->
+      </class> <!-- _03_Authentications.AuthenticationTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

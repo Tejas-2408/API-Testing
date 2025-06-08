@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-07T15:14:28 IST" name="Default suite" finished-at="2025-06-07T15:14:29 IST" duration-ms="1779">
+  <suite started-at="2025-06-08T11:40:44 IST" name="Default suite" finished-at="2025-06-08T11:40:47 IST" duration-ms="2540">
     <groups>
     </groups>
-    <test started-at="2025-06-07T15:14:28 IST" name="Default test" finished-at="2025-06-07T15:14:29 IST" duration-ms="1779">
-      <class name="_03_Authentications.AuthenticationTests">
-        <test-method signature="verifyAPIKey()[pri:0, instance:_03_Authentications.AuthenticationTests@cc43f62]" started-at="2025-06-07T15:14:28 IST" name="verifyAPIKey" finished-at="2025-06-07T15:14:29 IST" duration-ms="1745" status="PASS">
+    <test started-at="2025-06-08T11:40:44 IST" name="Default test" finished-at="2025-06-08T11:40:47 IST" duration-ms="2540">
+      <class name="_04_FileUpload.HeaderTest">
+        <test-method signature="getHeaders()[pri:0, instance:_04_FileUpload.HeaderTest@cc43f62]" started-at="2025-06-08T11:40:44 IST" name="getHeaders" finished-at="2025-06-08T11:40:47 IST" duration-ms="2507" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyAPIKey -->
-      </class> <!-- _03_Authentications.AuthenticationTests -->
+        </test-method> <!-- getHeaders -->
+      </class> <!-- _04_FileUpload.HeaderTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

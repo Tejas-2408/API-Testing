@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="_03_Authentications.AuthenticationTests">
+      <class name="ParsingJSONObjectResponse.StoreAPI">
         <methods>
-          <include name="verfiyBearerTokenAuth"/>
+          <include name="testJsonResponseBody"/>
         </methods>
-      </class> <!-- _03_Authentications.AuthenticationTests -->
+      </class> <!-- ParsingJSONObjectResponse.StoreAPI -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

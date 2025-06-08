@@ -1,0 +1,15 @@
+
+JSON to JSON Schema converter
+-----------
+https://www.freeformatter.com/xsd-generator.html#before-output
+
+XML to XSD converter
+----------
+https://www.site24x7.com/tools/xml-to-xsd.html
+
+
+Convert XSD to JSON Schema
+----
+https://www.convertsimple.com/convert-xsd-to-json-schema/
+
+	

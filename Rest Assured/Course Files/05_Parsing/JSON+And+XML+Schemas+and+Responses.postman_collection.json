@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "ffae71a1-9f07-4b83-8416-b817a5e40ccd",
+		"name": "JSON And XML Schemas and Responses",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4924228"
+	},
+	"item": [
+		{
+			"name": "XML API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://httpbin.org/xml",
+					"protocol": "https",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "XML API2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"schema= {\r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"city\": { \"type\": \"string\" },\r",
+							"    \"firstName\": { \"type\": \"string\" },\r",
+							"    \"lastName\": { \"type\": \"string\" },\r",
+							"    \"state\": { \"type\": \"string\" }\r",
+							"  }\r",
+							"}\r",
+							"\r",
+							"const responseBody = pm.response.text(); //capture xml response in the form of text\r",
+							" const jsonData = xml2Json(responseBody); // convert reponse body from text to json\r",
+							"\r",
+							"//Now, validate schema\r",
+							"pm.test('Check schema is valid for response', function () {\r",
+							"  pm.expect(tv4.validate(jsonData, schema)).to.be.true;    //tiny validator\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mocktarget.apigee.net/xml",
+					"protocol": "https",
+					"host": [
+						"mocktarget",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSON API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//JSON Schema \r",
+							"var schema = {\r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"firstName\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"lastName\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"city\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"state\": {\r",
+							"      \"type\": \"string\"\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"firstName\",\r",
+							"    \"lastName\",\r",
+							"    \"city\",\r",
+							"    \"state\"\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"const jsonData = pm.response.json();  // capture json response data\r",
+							"\r",
+							"pm.test('Check schema is valid for response', function () {\r",
+							"  pm.expect(tv4.validate(jsonData, schema)).to.be.true;    //tiny validator\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mocktarget.apigee.net/json",
+					"protocol": "https",
+					"host": [
+						"mocktarget",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"json"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

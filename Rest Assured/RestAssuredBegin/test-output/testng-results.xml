@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-08T11:40:44 IST" name="Default suite" finished-at="2025-06-08T11:40:47 IST" duration-ms="2540">
+  <suite started-at="2025-06-08T12:59:24 IST" name="Default suite" finished-at="2025-06-08T12:59:25 IST" duration-ms="1122">
     <groups>
     </groups>
-    <test started-at="2025-06-08T11:40:44 IST" name="Default test" finished-at="2025-06-08T11:40:47 IST" duration-ms="2540">
-      <class name="_04_FileUpload.HeaderTest">
-        <test-method signature="getHeaders()[pri:0, instance:_04_FileUpload.HeaderTest@cc43f62]" started-at="2025-06-08T11:40:44 IST" name="getHeaders" finished-at="2025-06-08T11:40:47 IST" duration-ms="2507" status="PASS">
+    <test started-at="2025-06-08T12:59:24 IST" name="Default test" finished-at="2025-06-08T12:59:25 IST" duration-ms="1122">
+      <class name="_05_ParsingJSONResponse.ParsingComplexJSONResponse">
+        <test-method signature="testUserDetails()[pri:1, instance:_05_ParsingJSONResponse.ParsingComplexJSONResponse@33bc72d1]" started-at="2025-06-08T12:59:24 IST" name="testUserDetails" finished-at="2025-06-08T12:59:25 IST" duration-ms="958" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getHeaders -->
-      </class> <!-- _04_FileUpload.HeaderTest -->
+        </test-method> <!-- testUserDetails -->
+        <test-method signature="testRecentOrdersValidation()[pri:2, instance:_05_ParsingJSONResponse.ParsingComplexJSONResponse@33bc72d1]" started-at="2025-06-08T12:59:25 IST" name="testRecentOrdersValidation" finished-at="2025-06-08T12:59:25 IST" duration-ms="93" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRecentOrdersValidation -->
+        <test-method signature="testPreferencesAndMetadataValidation()[pri:3, instance:_05_ParsingJSONResponse.ParsingComplexJSONResponse@33bc72d1]" started-at="2025-06-08T12:59:25 IST" name="testPreferencesAndMetadataValidation" finished-at="2025-06-08T12:59:25 IST" duration-ms="38" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPreferencesAndMetadataValidation -->
+      </class> <!-- _05_ParsingJSONResponse.ParsingComplexJSONResponse -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

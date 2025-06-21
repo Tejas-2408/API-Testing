@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ParsingJSONObjectResponse.StoreAPI">
+      <class name="_08_APIChaining.APIChaining">
         <methods>
-          <include name="testJsonResponseBody"/>
+          <include name="createUser"/>
+          <include name="updateUser"/>
+          <include name="getUser"/>
         </methods>
-      </class> <!-- ParsingJSONObjectResponse.StoreAPI -->
+      </class> <!-- _08_APIChaining.APIChaining -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

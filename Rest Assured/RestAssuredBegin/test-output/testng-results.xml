@@ -1,17 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-08T13:43:43 IST" name="Default suite" finished-at="2025-06-08T13:43:45 IST" duration-ms="1898">
+  <suite started-at="2025-06-21T14:08:48 IST" name="Default suite" finished-at="2025-06-21T14:08:54 IST" duration-ms="6534">
     <groups>
     </groups>
-    <test started-at="2025-06-08T13:43:43 IST" name="Default test" finished-at="2025-06-08T13:43:45 IST" duration-ms="1898">
-      <class name="ParsingJSONObjectResponse.StoreAPI">
-        <test-method signature="testJsonResponseBody()[pri:0, instance:ParsingJSONObjectResponse.StoreAPI@cc43f62]" started-at="2025-06-08T13:43:43 IST" name="testJsonResponseBody" finished-at="2025-06-08T13:43:45 IST" duration-ms="1871" status="PASS">
+    <test started-at="2025-06-21T14:08:48 IST" name="Default test" finished-at="2025-06-21T14:08:54 IST" duration-ms="6534">
+      <class name="_08_APIChaining.DeleteUser">
+        <test-method signature="deleteUser(org.testng.ITestContext)[pri:0, instance:_08_APIChaining.DeleteUser@48f2bd5b]" started-at="2025-06-21T14:08:53 IST" name="deleteUser" finished-at="2025-06-21T14:08:54 IST" depends-on-methods="_08_APIChaining.UpdateUser.updateUser" duration-ms="1098" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@3cebbb30]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testJsonResponseBody -->
-      </class> <!-- ParsingJSONObjectResponse.StoreAPI -->
+        </test-method> <!-- deleteUser -->
+      </class> <!-- _08_APIChaining.DeleteUser -->
+      <class name="_08_APIChaining.CreateUser">
+        <test-method signature="createUser(org.testng.ITestContext)[pri:0, instance:_08_APIChaining.CreateUser@68e5eea7]" started-at="2025-06-21T14:08:48 IST" name="createUser" finished-at="2025-06-21T14:08:51 IST" duration-ms="2947" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@3cebbb30]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createUser -->
+      </class> <!-- _08_APIChaining.CreateUser -->
+      <class name="_08_APIChaining.GetUser">
+        <test-method signature="getUser(org.testng.ITestContext)[pri:0, instance:_08_APIChaining.GetUser@291b4bf5]" started-at="2025-06-21T14:08:51 IST" name="getUser" finished-at="2025-06-21T14:08:52 IST" depends-on-methods="_08_APIChaining.CreateUser.createUser" duration-ms="1171" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@3cebbb30]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUser -->
+      </class> <!-- _08_APIChaining.GetUser -->
+      <class name="_08_APIChaining.UpdateUser">
+        <test-method signature="updateUser(org.testng.ITestContext)[pri:0, instance:_08_APIChaining.UpdateUser@2d2ffcb7]" started-at="2025-06-21T14:08:52 IST" name="updateUser" finished-at="2025-06-21T14:08:53 IST" depends-on-methods="_08_APIChaining.GetUser.getUser" duration-ms="1274" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@3cebbb30]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateUser -->
+      </class> <!-- _08_APIChaining.UpdateUser -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

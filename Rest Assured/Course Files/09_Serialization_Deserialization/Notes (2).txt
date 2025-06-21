@@ -1,0 +1,13 @@
+Request & Response Specification
+------
+Employees API
+
+
+http://localhost:3000/employees
+http://localhost:3000/employees/1
+
+http://localhost:3000/employees?last_name=King
+http://localhost:3000/employees?first_name=Steven
+
+http://localhost:3000/employees?gender=Female
+http://localhost:3000/employees?gender=Male

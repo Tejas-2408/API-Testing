@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="_08_APIChaining.APIChaining">
+      <class name="_09_Serialization_Deserialization.SerializationDeserialization">
         <methods>
-          <include name="createUser"/>
-          <include name="updateUser"/>
-          <include name="getUser"/>
+          <include name="deserialization"/>
+          <include name="serialization"/>
         </methods>
-      </class> <!-- _08_APIChaining.APIChaining -->
+      </class> <!-- _09_Serialization_Deserialization.SerializationDeserialization -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

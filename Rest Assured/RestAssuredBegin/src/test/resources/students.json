@@ -40,17 +40,6 @@
         "python",
         "ml"
       ]
-    },
-    {
-      "id": "d57e",
-      "name": "Tejas",
-      "location": "Delhi",
-      "phone": "1234567",
-      "courses": [
-        "selenium",
-        "java",
-        "python"
-      ]
     }
   ]
 }

@@ -29,28 +29,6 @@
         "C#",
         "RestAPI"
       ]
-    },
-    {
-      "id": "5ee0",
-      "name": "tejas",
-      "location": "india",
-      "phone": "12345678",
-      "courses": [
-        "java",
-        "python",
-        "ml"
-      ]
-    },
-    {
-      "id": "d57e",
-      "name": "Tejas",
-      "location": "Delhi",
-      "phone": "1234567",
-      "courses": [
-        "selenium",
-        "java",
-        "python"
-      ]
     }
   ]
 }

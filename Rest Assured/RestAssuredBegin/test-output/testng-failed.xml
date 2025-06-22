@@ -3,12 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="_09_Serialization_Deserialization.SerializationDeserialization">
+      <class name="_10_DataDrivenTesting.DataDrivenTesting">
         <methods>
-          <include name="deserialization"/>
-          <include name="serialization"/>
+          <include name="testWithJson"/>
         </methods>
-      </class> <!-- _09_Serialization_Deserialization.SerializationDeserialization -->
+      </class> <!-- _10_DataDrivenTesting.DataDrivenTesting -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
